@@ -4,4 +4,5 @@ runs-on: ubuntu-latest
 jobs: 
    testJob:
       steps:
-       run: echo "Github Action"
+        - run: echo "Github Action"
+        - run: echo "Next..." 
