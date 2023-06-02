@@ -1,0 +1,14 @@
+name: This is second workflow
+on: [push]
+jobs: 
+   firstJob: 
+       runs-on: ubuntu-latest
+       steps:
+        - name: Checking the hostname 
+          run: |
+           sudo hostname
+        - name: Set New hostname
+          run: | 
+            sudo hostnamectl set-hostname DevOps
+            echo hostname 
+            
