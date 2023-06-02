@@ -21,7 +21,7 @@ jobs:
         run: echo "True"
 
  my_second_job:
-            needs: my_third_job
+            needs: my_fourth_job
             runs-on: ubuntu-latest
             steps:
               - name: Checkout code
@@ -45,7 +45,7 @@ jobs:
             - name: Job 3
               run: echo "Third job Execution ."
  my_fourth_job: 
-            needs: my_second_job
+            needs: firstJob
             runs-on: ubuntu-latest
             steps: 
              - name: Cache node modules
@@ -53,6 +53,11 @@ jobs:
                uses: actions/cache@v3
                with: 
                     path: ~/.npm
+                    key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+                    restore-keys: |
+                      ${{ runner.os }}-build-${{ env.cache-name }}-
+                      ${{ runner.os }}-build-
+                      ${{ runner.os }}-
              - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
                name: List the state of node modules
                continue-on-error: true
