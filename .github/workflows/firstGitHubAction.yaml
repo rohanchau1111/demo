@@ -5,5 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "First job running"
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Running shell command
+        run: |
+          echo "welcome"
+          ls -l 
