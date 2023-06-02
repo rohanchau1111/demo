@@ -1,22 +1,46 @@
 name: This is second workflow
-on: [push]
-jobs: 
-   firstJob: 
-       runs-on: ubuntu-latest
-       env: 
-         hostname: DevOps
-         app: githubaction 
-       steps:
-        - name: Checking the hostname 
-          run: |
-           sudo hostname
-        - name: Set New hostname
-          run: | 
-            sudo hostnamectl set-hostname "$hostname"
-            hostname
-        - name: Checking the Condition using Env
-          if: ${{ env.app == 'githubaction' }}
-          run: | 
-            echo "True !"
-             
-           
+on:
+  - push
+jobs:
+ firstJob:
+   needs: my_third_job
+   runs-on: ubuntu-latest
+   env:
+      hostname: DevOps
+      app: githubaction
+   steps:
+      - name: Checking the hostname
+        run: |
+          sudo hostname
+      - name: Set New hostname
+        run: |
+          sudo hostnamectl set-hostname "$hostname"
+          hostname
+      - name: Checking the Condition using Env
+        if: ${{ env.app == 'githubaction' }}
+        run: echo "True"
+
+ my_second_job:
+            needs: my_fourth_job
+            runs-on: ubuntu-latest
+            steps: 
+            - name: Job 2
+              run: npm install
+ 
+ my_third_job:
+            runs-on: ubuntu-latest
+            steps: 
+            - name: Job 3
+              run: echo "Third job Execution ."
+ my_fourth_job: 
+            runs-on: ubuntu-latest
+            steps: 
+             - name: Cache node modules
+               id: cache-npm
+               uses: actions/cache@v3
+               with: 
+                    path: ~/.npm
+             - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+               name: List the state of node modules
+               continue-on-error: true
+               run: npm list
