@@ -1,6 +1,7 @@
 name: This is second workflow
-on:
-  - push
+on: [workflow_dispatch]
+  #- push
+   
 jobs:
  firstJob:
    needs: my_third_job
