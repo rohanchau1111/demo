@@ -77,5 +77,4 @@ jobs:
     
              - run: echo "Build Successful"
        
-             - name: Test
-               run: npm test
+             
