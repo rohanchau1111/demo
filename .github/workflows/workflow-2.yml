@@ -26,18 +26,17 @@ jobs:
             steps:
               - name: Checkout code
                 uses: actions/checkout@v3            
-##               run: sudo npm install
-              - uses: actions/setup-node@v3
-                with:
-                    node-version: 18
-              - run: npm ci
-              - run: npm test
-              #- uses: actions/setup-node@v3
-             # with:
-             # node-version: 18
-             #- run: npm ci
-              - name: Build 
+##            
+              - name: Setup Node.js
+                uses: actions/setup-node@v2
+                with: 
+                      node-version: 14
+              - name: Install Dependencies
+                run: npm install 
+              
+              - name: Build the app
                 run: npm run build
+
               - run: echo "Build Successful"
  
  my_third_job:
