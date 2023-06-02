@@ -1,0 +1,6 @@
+name: Github Action Demo
+on: [Push]
+runs-on: ubuntu-latest
+jobs: 
+   testJob:
+       run: echo "Github Action"
