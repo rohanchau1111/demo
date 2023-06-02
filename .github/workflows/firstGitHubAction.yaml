@@ -1,8 +1,9 @@
-name: Github Action Demo
-on: [Push]
-runs-on: ubuntu-latest
-jobs: 
-   testJob:
-      steps:
-        - run: echo "Github Action"
-        - run: echo "Next..." 
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "First job running"
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
