@@ -32,8 +32,8 @@ jobs:
              - run: npm test    
             # - name: Copy Json to runner
             #   run: cp package.json /home/runner/work/demo/demo/package.json
-             - name: Installing npm 
-               run: npm install
+            #  - name: Installing npm 
+            #    run: npm install
              - name: Build 
                run: npm run build
  
