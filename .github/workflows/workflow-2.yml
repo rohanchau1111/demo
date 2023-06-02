@@ -26,6 +26,8 @@ jobs:
             steps: 
             - name: Job 2
               run: npm install
+            - name: Build 
+              run: npm run build
  
  my_third_job:
             runs-on: ubuntu-latest
