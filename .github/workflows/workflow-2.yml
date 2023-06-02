@@ -26,7 +26,14 @@ jobs:
             steps:
               - name: Checkout code
                 uses: actions/checkout@v3            
-##            
+              
+              - name: Cache node modules
+                id: cache-npm
+                uses: actions/cache@v3
+                with: 
+                 path: ~/.npm
+                 key: cachemodule-${{ hashFiles('**/package.-lock.json') }}  
+              
               - name: Setup Node.js
                 uses: actions/setup-node@v2
                 with: 
@@ -53,20 +60,19 @@ jobs:
                uses: actions/cache@v3
                with: 
                     path: ~/.npm
-                    key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                    restore-keys: |
-                      ${{ runner.os }}-build-${{ env.cache-name }}-
-                      ${{ runner.os }}-build-
-                      ${{ runner.os }}-
-             - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-               name: List the state of node modules
-               continue-on-error: true
-               run: npm list
-             - name: Install dependencies
-               run: npm install
-       
-             - name: Build
+                    key: cachemodule-${{ hashFiles('**/package.-lock.json') }}
+             
+             - name: Setup Node.js
+               uses: actions/setup-node@v2
+               with: 
+                      node-version: 14
+             - name: Install Dependencies
+               run: npm install 
+                  
+             - name: Build the app
                run: npm run build
+    
+             - run: echo "Build Successful"
        
              - name: Test
                run: npm test
