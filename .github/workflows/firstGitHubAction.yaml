@@ -8,4 +8,6 @@ jobs:
       - name: Running shell command
         run: |
           echo "welcome"
+          touch abc
+          apt install curl -y
           ls -l 
