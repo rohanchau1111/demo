@@ -21,7 +21,7 @@ jobs:
         run: echo "True"
 
  my_second_job:
-            needs: my_fourth_job
+            needs: my_third_job
             runs-on: ubuntu-latest
             steps: 
             - name: Job 2
@@ -33,6 +33,7 @@ jobs:
             - name: Job 3
               run: echo "Third job Execution ."
  my_fourth_job: 
+            needs: my_second_job
             runs-on: ubuntu-latest
             steps: 
              - name: Cache node modules
@@ -44,3 +45,11 @@ jobs:
                name: List the state of node modules
                continue-on-error: true
                run: npm list
+             - name: Install dependencies
+               run: npm install
+       
+             - name: Build
+               run: npm run build
+       
+             - name: Test
+               run: npm test
