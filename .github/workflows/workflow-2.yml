@@ -43,7 +43,7 @@ jobs:
                 run: npm install 
 
               - name: Installing react
-                run: npm i react-script
+                run: npm i react-scripts
               
               - name: Build the app
                 run: npm run build
@@ -84,6 +84,9 @@ jobs:
                       node-version: 14
              - name: Install Dependencies
                run: npm install 
+
+             - name: Install React
+               run: npm i react-scripts
                   
              - name: Build the app
                run: npm run build
