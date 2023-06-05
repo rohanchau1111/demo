@@ -2,15 +2,15 @@
 
 FROM node:14-alpine as builder
 WORKDIR /app
-COPY package.json .
-COPY yarn.lock .
-RUN yarn install 
-COPY . .
-RUN  yarn build
+COPY package*.json ./
+RUN npm install
+COPY artifacts/final-build.tar.gz .
+RUN tar -xzf final-build.tar.gz
+RUN npm run build
+
 
 #Stage 2
-FROM nginx:1.19.0
-WORKDIR /usr/share/nginx/html
-COPY --from=builder /app/build .
+FROM nginx:stable-alpine
+COPY --from=builder /app/build /usr/share/nginx/html
 EXPOSE 8080
 ENTRYPOINT [ "nginx","-g","daemon off;"]
