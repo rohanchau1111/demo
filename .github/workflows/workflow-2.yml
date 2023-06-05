@@ -41,6 +41,9 @@ jobs:
                       node-version: 14
               - name: Install Dependencies
                 run: npm install 
+
+              - name: Installing react
+                run: npm i react-script
               
               - name: Build the app
                 run: npm run build
@@ -97,4 +100,3 @@ jobs:
                  name: final-build
              - name: Test the artifact
                run: ls -R 
-               
