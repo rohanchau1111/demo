@@ -51,10 +51,10 @@ jobs:
                 with:
                     name: final-build
                     path: |
-                        artifacts
+                        artifacts/
                         package.json  
                         path/output/bin/
- 
+                    retention-days: 90
  my_third_job:
             runs-on: ubuntu-latest
             steps: 
