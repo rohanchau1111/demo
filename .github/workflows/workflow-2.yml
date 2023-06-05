@@ -51,9 +51,11 @@ jobs:
               - name: Installing react
                 run: npm i react-scripts
               
-              - name: Build the app
-                run: npm run build
+              # - name: Build the app
+              #   run: npm run build
 
+              - name: NPM start
+                run: npm start
               - run: echo "Build Successful"
               - name: Upload artifact 
                 uses: actions/upload-artifact@v3
@@ -99,8 +101,10 @@ jobs:
              - name: Install React
                run: npm i react-scripts
                   
-             - name: Build the app
-               run: npm run build
+            #  - name: Build the app
+            #    run: npm run build
+             - name: NPM start
+               run: npm start
     
              - run: echo "Build Successful"
  myjob-5: 
