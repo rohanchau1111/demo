@@ -51,7 +51,7 @@ jobs:
                 with:
                     name: final-build
                     path: |
-                        artifact
+                        artifacts
                         package.json  
                         path/output/bin/
  
