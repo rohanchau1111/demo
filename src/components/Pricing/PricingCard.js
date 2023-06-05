@@ -8,7 +8,7 @@ const PricingCard = ({
   priceImg,
   price,
   activeCard,
-  setActiveCard,
+  //setActiveCard,
 }) => {
   const pricingItems = [
     "One Day Conference Ticket",
