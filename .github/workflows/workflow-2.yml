@@ -80,6 +80,9 @@ jobs:
                     path: ~/.npm
                     key: cachemodule-${{ hashFiles('**/package.-lock.json') }}
              
+             - name: Installing nvm
+               run: nvm install 16.15.1
+             
              - name: Setup Node.js
                uses: actions/setup-node@v2
                with: 
