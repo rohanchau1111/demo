@@ -23,11 +23,11 @@ const PricingCard = ({
   useEffect(() => {
     window.addEventListener("resize", () => {
       if (window.innerWidth < "1168") {
-        setActiveCard("");
+     //   setActiveCard("");
         setMedia(false);
       } else {
         setMedia(true);
-        setActiveCard("99");
+       // setActiveCard("99");
       }
     });
   }, []);
@@ -35,7 +35,7 @@ const PricingCard = ({
   return (
     <div
       style={{ transform: activeCard === price ? "scale(1.1)" : "" }}
-      onMouseEnter={() => media && setActiveCard(price)}
+     // onMouseEnter={() => media && setActiveCard(price)}
       css={styles}
       className="pricingCard"
     >
