@@ -55,6 +55,7 @@ jobs:
                         package.json  
                         path/output/bin/
                     retention-days: 90
+    
  my_third_job:
             runs-on: ubuntu-latest
             steps: 
@@ -85,5 +86,15 @@ jobs:
                run: npm run build
     
              - run: echo "Build Successful"
-       
-             
+ myjob-5: 
+          name: Downloading build artifact
+          needs: my_second_job
+          runs-on:  ubuntu-latest 
+          steps: 
+             - name: Download Artifact
+               uses: actions/download-artifact@v3
+               with:
+                 name: final-build
+             - name: Test the artifact
+               run: ls -R 
+               

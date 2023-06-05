@@ -16,12 +16,12 @@ jobs:
         run: | 
            docker login -u $DOCKER_USER -p $DOCKER_PASS 
      
-      - name: Download Artifact
-        uses: action/download-artifact@v2
-        with:
-           name: final-build
-           path: artifacts/
-           run: echo "----Downloaded succesfully-----"
+      # - name: Download Artifact
+      #   uses: action/download-artifact@v2
+      #   with:
+      #      name: final-build
+      #      path: artifacts/
+      #      run: echo "----Downloaded succesfully-----"
       - name: Build the Docker image
         run: docker build -t ${{secrets.DOCKERHUB_USERNAME}}/sampledocker:latest  -f  Dockerfile . 
        # working-directory: artifacts
