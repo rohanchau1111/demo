@@ -37,6 +37,10 @@ jobs:
               
               - name: Installing nvm
                 run: nvm install 16.15.1
+              
+              - name: Installing cross-env npm
+                run: npm install cross-env
+            
               - name: Setup Node.js
                 uses: actions/setup-node@v2
                 with: 
@@ -82,13 +86,15 @@ jobs:
              
              - name: Installing nvm
                run: nvm install 16.15.1
-             
+            
+             - name: Installing cross-env npm
+               run: npm install cross-env
              - name: Setup Node.js
                uses: actions/setup-node@v2
                with: 
                       node-version: 14
-             - name: Install Dependencies
-               run: npm install 
+            #  - name: Install Dependencies
+            #    run: npm install 
 
              - name: Install React
                run: npm i react-scripts
