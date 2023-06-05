@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
 RUN yarn install 
-COPY artifacts /app/
+COPY  .  .
 RUN  yarn build
 
 #Stage 2
