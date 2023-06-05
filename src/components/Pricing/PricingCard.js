@@ -16,7 +16,7 @@ import Button from "../GlobalComponents/Button";
 //     "Lunch and Networking",
 //     "Keynote talk",
 //     "Talk to the Editors Session",
-//   ];
+//   ];  D
 
 //   const [media, setMedia] = useState(true);
 
