@@ -89,11 +89,13 @@ jobs:
                with:
                    node-version: 14
                    cache: 'npm'
-             - run: npm install
+             
+             - run: npm install      
+             - run: npm run build
+             
              - name: NPM start
                run: npm start
              
-             - run: npm run build
               #- name: Setup Node.js
            #     uses: actions/setup-node@v2
             #  with: 
