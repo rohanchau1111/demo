@@ -74,13 +74,17 @@ jobs:
              - name: Checkout code
                uses: actions/checkout@v3            
               
-             - name: Cache node modules
-               id: cache-npm
-               uses: actions/cache@v3
-               with: 
-                    path: ~/.npm
-                    key: cachemodule-${{ hashFiles('**/package.-lock.json') }}
+
+          ## --------- Cache Module ----------
+            #  - name: Cache node modules
+            #    id: cache-npm
+            #    uses: actions/cache@v3
+            #    with: 
+            #         path: ~/.npm
+            #         key: cachemodule-${{ hashFiles('**/package.-lock.json') }}
          
+
+          ## -------- Setup NPM --------------
              - uses: actions/setup-node@v3
                with:
                    node-version: 14
@@ -105,6 +109,8 @@ jobs:
        
     
              - run: echo "Build Successful"
+
+          ## ------- Downloading the Artifacts ---------
 #  myjob-5: 
 #           name: Downloading build artifact
 #           needs: my_second_job
