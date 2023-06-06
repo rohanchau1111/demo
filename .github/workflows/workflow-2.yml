@@ -86,7 +86,10 @@ jobs:
                    node-version: 16
                    cache: 'npm'
              - run: npm ci
-             - run: npm test
+             - name: NPM start
+               run: npm start
+             
+             - run: npm run build
               #- name: Setup Node.js
            #     uses: actions/setup-node@v2
             #  with: 
@@ -99,8 +102,7 @@ jobs:
                   
             #  - name: Build the app
             #    run: npm run build
-            # #  - name: NPM start
-            # #    run: npm start
+       
     
              - run: echo "Build Successful"
 #  myjob-5: 
