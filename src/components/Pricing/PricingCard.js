@@ -130,4 +130,4 @@ const styles = css`
   }
 `;
 
-//export default PricingCard;
+export default PricingCard;
