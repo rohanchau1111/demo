@@ -90,9 +90,9 @@ jobs:
                    node-version: 14
                    cache: 'npm'
              
-             - run: npm install      
+             - run: npm ci      
              - run: npm run build
-             
+
              - name: NPM start
                run: npm start
              
